@@ -1,5 +1,5 @@
 # ColdWalletAtHome
-
+![pendrive image](img/image.jpg)
 ## Overview
 **ColdWalletAtHome** is an Ethereum cold wallet designed for early-stage development. It is tailored for Linux users (I used WSL) and does not include a graphical user interface (GUI). This project provides a script that handles the signing process offline, effectively acting as a cold wallet when saved on a USB drive.
 
