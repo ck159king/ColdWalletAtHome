@@ -14,6 +14,16 @@ The provided Python script manages transactions and operates as a cold wallet. T
 2. Use the Python script to sign transactions.
 3. Configure an Etherscan API key to eliminate the need for a JSON-RPC node.
 4. The script generates a QR code that can be scanned to send an Etherscan request with the signed transaction hash. For enhanced privacy, use this tool offline.
+# Setup
+clone the project using 
+```git clone https://github.com/ck159king/ColdWalletAtHome.git```
+
+Check the location of your pendrive by using
+```lsblk```
+
+Run ``` python3 ColdWallet.py ```
+provide it the data
+
 
 ### Important Note
 - The current API URLs are configured for the Sepolia testnet. To switch to the mainnet, simply remove "sepolia" from the URL.
