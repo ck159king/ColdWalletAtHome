@@ -63,7 +63,6 @@ def load_private_key_from_der(file_path):
         
         # Convert the integer to hexadecimal format
         hex_private_key = hex(private_key_int)[2:]  # Remove '0x' prefix
-        print(hex_private_key)
         return hex_private_key
 
     except Exception as e:
