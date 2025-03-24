@@ -83,8 +83,7 @@ def sign(device):
     os.system(f"sudo mkdir -p {mount_point}")
     os.system(f"sudo mount {mapper_device}  {mount_point}")
     print(f"-------Encrypted pendrive mounted at {mount_point}.")
-    api = input("api key of etherscan. (leave blank to use default)")
-    os.system(f"cd {mount_point} ; python3 {mount_point}/all.py {api}")
+    os.system(f"cd {mount_point} ; python3 {mount_point}/all.py")
     # Step 7: unmounting
     print(f"--------Unmounting drive")
     os.system(f"sudo umount {mount_point}")

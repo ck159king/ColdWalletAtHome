@@ -31,8 +31,48 @@ provide it the data
   - Mainnet: `1`
   - Sepolia: `11155111`
 
-## Usage Instructions for WSL
+# Usage Instructions for WSL
+## CHECK IF THESE MODULES ARE LOADED
+``` sudo modprobe dm_crypt ``` 
+and ``` sudo modprobe vhci_hcd ```
+
+IF they return fatal error then you need to build you kernel
+## Building wsl kernel
+Install required packages
+```sudo apt install build-essential flex bison libssl-dev libelf-dev libncurses5-dev git bc pahole```
+
+Clone the WSL kernel files
+``` git clone https://github.com/microsoft/WSL2-Linux-Kernel.git
+cd WSL2-Linux-Kernel
+export KCONFIG_CONFIG=Microsoft/config-wsl
+make menuconfig
+ ```
+Then menu will appear
+ ``` Device Drivers --->
+    [*] Multiple devices driver support (RAID and LVM) --->
+        <*> Device mapper support
+    [*] USB Support --->
+    	<*> USB/IP support 
+```
+then ``` sudo make -j$((nproc)*1.5) ```
+the -jN option will enable multithreading. You can experiment with it
+
+Now we will copy the kernel
+``` cp arch/x86_64/boot/bzImage  /mnt/c/Users/USERNAME ```
+
+Now exit wsl and write this command in cmd or powershell
+``` wsl --shutdown ```
+Now make a file .wslconfig in you ``` C:/Users/USERNAME ```
+Add the following code
+``` 
+[wsl2]
+kernel=C:\\Users\\USERNAME\\bzImage 
+```
+Now open wsl.
+You may read this for to connect your pendrive to wsl.
+[Connect USB devices](https://learn.microsoft.com/en-us/windows/wsl/connect-usb "OPEN THIS")
 ### Note:
+```USERNAME``` : Replace with your username your windows username
 Certain modules may not be loaded by default in WSL. You may need to compile the kernel to use `cryptsetup`, especially in WSL environments.
 
 ---

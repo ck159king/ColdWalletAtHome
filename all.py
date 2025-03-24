@@ -86,10 +86,8 @@ req_data = '{' \
 '"params":["%s"], "id":57}'%("0x" + signed_txn_rlp_encoded.hex())
 print(req_data)
 
-api = "YOUR ETHERSCAN API KEY"
-if len(sys.argv)>1:
-    api = sys.argv[1]
-request = f"https://api-sepolia.etherscan.io/api?module=proxy&action=eth_sendRawTransaction&hex={'0x' + signed_txn_rlp_encoded.hex()}&apikey={api}"
+api = "YOUR API KEY"
+request = f"https://api.etherscan.io/v2/api?module=proxy&action=eth_sendRawTransaction&hex={'0x' + signed_txn_rlp_encoded.hex()}&apikey={api}&chainid={chainId}"
 
 print((request))
 img = qrcode.make(request)
