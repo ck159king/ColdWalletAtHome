@@ -26,9 +26,9 @@ provide it the data
 
 
 ### Important Note
-- The current API URLs are configured for the Sepolia testnet. To switch to the mainnet, simply remove "sepolia" from the URL.
 - This tool is compatible with all EVM-compatible chains. To change networks, use the appropriate chain ID:
   - Mainnet: `1`
+  - POLYGON: `137`
   - Sepolia: `11155111`
 
 # Usage Instructions for WSL
